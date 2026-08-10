@@ -56,7 +56,7 @@ export default function Footer() {
 
           {/* COLUMN 2: Navigation & Website Content */}
           <div className="space-y-4">
-            <h3 className="text-xs uppercase font-bold text-[#c5a882] tracking-widest block">
+            <h3 className="text-sm sm:text-base uppercase font-bold text-[#c5a882] tracking-wider block">
               Navigation & Content
             </h3>
             <ul className="space-y-2.5 text-xs sm:text-sm text-gray-600 font-light">
@@ -83,7 +83,7 @@ export default function Footer() {
 
           {/* COLUMN 3: Location & Trading Hours */}
           <div className="space-y-4">
-            <h3 className="text-xs uppercase font-bold text-[#c5a882] tracking-widest block">
+            <h3 className="text-sm sm:text-base uppercase font-bold text-[#c5a882] tracking-wider block">
               Location & Hours
             </h3>
             

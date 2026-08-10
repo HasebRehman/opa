@@ -184,7 +184,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
           {/* Minimal Headline */}
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight font-light tracking-wide">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight font-light tracking-wide pt-8 sm:pt-0">
               Greek Passion Meets{' '}
               <span className="italic text-mint font-serif font-normal block sm:inline">
                 Riverside Luxury

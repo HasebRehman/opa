@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     "Eagle Street Restaurant",
     "Mezze Bar Brisbane",
   ],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Opa Bar + Mezze | Brisbane's Best Greek Restaurant",
     description:

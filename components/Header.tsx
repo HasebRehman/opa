@@ -241,18 +241,22 @@ export default function Header({ onOpenBooking, onSelectMenuView, darkText = fal
             {/* Bookings Button */}
             <button
               onClick={onOpenBooking}
-              className="bg-mint hover:bg-mint-dark text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded transition-colors cursor-pointer"
+              className="bg-mint hover:bg-mint-dark text-white text-[11px] sm:text-xs font-bold uppercase tracking-widest px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-sm hover:shadow transition-all cursor-pointer transform active:scale-95"
             >
               Bookings
             </button>
 
-            {/* Mobile hamburger */}
+            {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileOpen(true)}
-              className={`lg:hidden p-1 ${useWhiteHeader ? 'text-charcoal' : 'text-white'}`}
+              className={`lg:hidden flex items-center justify-center w-10 h-10 rounded-full cursor-pointer transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 ${
+                useWhiteHeader
+                  ? 'bg-gray-100 hover:bg-mint/15 text-charcoal hover:text-mint border border-gray-200'
+                  : 'bg-white/15 hover:bg-white/25 text-white backdrop-blur-md border border-white/30'
+              }`}
               aria-label="Open menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -271,18 +275,22 @@ export default function Header({ onOpenBooking, onSelectMenuView, darkText = fal
                 className="h-10 w-auto"
               />
             </Link>
-            <button onClick={() => setMobileOpen(false)} className="text-charcoal p-1 cursor-pointer">
-              <X className="w-6 h-6" />
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="text-charcoal hover:text-mint hover:bg-gray-100 p-2 rounded-full transition-all cursor-pointer"
+              aria-label="Close menu"
+            >
+              <X className="w-5 h-5" />
             </button>
           </div>
-          <nav className="flex-1 flex flex-col justify-center px-8 gap-4">
+          <nav className="flex-1 flex flex-col overflow-y-auto px-8 py-6 gap-3">
             <span className="text-xs uppercase font-bold text-[#c5a882] tracking-wider block">Menu Pages</span>
             <button
               onClick={() => {
                 setMobileOpen(false);
                 handleSubMenuClick('restaurant');
               }}
-              className="text-left text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
             >
               Restaurant Menu
             </button>
@@ -291,7 +299,7 @@ export default function Header({ onOpenBooking, onSelectMenuView, darkText = fal
                 setMobileOpen(false);
                 handleSubMenuClick('banquet');
               }}
-              className="text-left text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
             >
               First In Greek Feast Banquet $64
             </button>
@@ -300,64 +308,75 @@ export default function Header({ onOpenBooking, onSelectMenuView, darkText = fal
                 setMobileOpen(false);
                 handleSubMenuClick('lunch');
               }}
-              className="text-left text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
             >
               Lunch Specials
             </button>
 
-            <div className="h-[1px] bg-gray-100 my-2" />
+            <div className="h-[1px] bg-gray-100 my-1" />
+
+            <span className="text-xs uppercase font-bold text-[#c5a882] tracking-wider block">Venue & Experience</span>
+            <Link
+              href="/private-room"
+              onClick={() => setMobileOpen(false)}
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+            >
+              Private Room
+            </Link>
+            <Link
+              href="/functions"
+              onClick={() => setMobileOpen(false)}
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+            >
+              Functions
+            </Link>
+            <Link
+              href="/gallery"
+              onClick={() => setMobileOpen(false)}
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+            >
+              Gallery
+            </Link>
+
+            <div className="h-[1px] bg-gray-100 my-1" />
 
             <span className="text-xs uppercase font-bold text-[#c5a882] tracking-wider block">Gift Vouchers</span>
             <Link
               href="/opa-gift-voucher"
               onClick={() => setMobileOpen(false)}
-              className="text-left text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
             >
               Opa Gift Voucher
             </Link>
             <Link
               href="/tassis-gift-voucher"
               onClick={() => setMobileOpen(false)}
-              className="text-left text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
             >
               Tassis Group Gift Voucher
             </Link>
 
-            <a
-              href="/#functions"
-              onClick={() => setMobileOpen(false)}
-              className="text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
-            >
-              Private Room & Functions
-            </a>
-            <Link
-              href="/gallery"
-              onClick={() => setMobileOpen(false)}
-              className="text-left text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
-            >
-              Gallery
-            </Link>
-            <div className="h-[1px] bg-gray-100 my-2" />
+            <div className="h-[1px] bg-gray-100 my-1" />
 
             <span className="text-xs uppercase font-bold text-[#c5a882] tracking-wider block">Contact & Company</span>
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="text-left text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
             >
               Contact
             </Link>
             <Link
               href="/careers"
               onClick={() => setMobileOpen(false)}
-              className="text-left text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
             >
               Careers
             </Link>
             <Link
               href="/business-opportunities"
               onClick={() => setMobileOpen(false)}
-              className="text-left text-xl font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
+              className="text-left text-lg font-serif text-charcoal hover:text-mint transition-colors cursor-pointer"
             >
               Business Opportunities
             </Link>
