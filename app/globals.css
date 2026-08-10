@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-mint: #7ec8b5;
+  --color-mint-dark: #5eb39e;
+  --color-mint-light: #a8ddd0;
+  --color-coral: #f0c4b8;
+  --color-coral-light: #f8e0d8;
+  --color-tan: #c5a882;
+  --color-tan-light: #d9c5a8;
+  --color-cream: #fdf8f4;
+  --color-white: #ffffff;
+  --color-charcoal: #2d2d2d;
+  --color-gray: #666666;
+  --color-gray-light: #999999;
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-jakarta);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #2d2d2d;
+    font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+
+  ::selection {
+    background-color: #7ec8b5;
+    color: #ffffff;
+  }
+}
+
+/* Hide scrollbar globally for Chrome, Safari, Opera */
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+
+/* Utility to hide scrollbars on scrollable elements while maintaining scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
