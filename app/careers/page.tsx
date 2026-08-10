@@ -24,7 +24,7 @@ export default function CareersPage() {
               <h1 className="text-5xl sm:text-7xl lg:text-8xl font-serif text-mint font-normal tracking-tight">
                 Work at Opa
               </h1>
-              <div className="w-32 h-[3px] bg-[#c5a882] rounded-full" />
+              <div className="w-32 h-[3px] bg-[#8b6838] rounded-full" />
             </div>
 
             <div className="space-y-4 pt-2">
@@ -51,7 +51,7 @@ export default function CareersPage() {
             <div className="pt-4">
               <a
                 href="mailto:tassisgroupqld@gmail.com?subject=Careers%20at%20Opa%20Bar%20-%20CV%20Application"
-                className="bg-[#c5a882] hover:bg-[#b0936e] text-white font-bold py-4 px-8 rounded-xl shadow-lg uppercase text-xs tracking-widest transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-[#8b6838] hover:bg-[#72542c] text-white font-bold py-4 px-8 rounded-xl shadow-lg uppercase text-xs tracking-widest transition-all cursor-pointer inline-flex items-center gap-2 min-h-[44px]"
               >
                 <Mail className="w-4 h-4" />
                 <span>Send Your CV</span>
