@@ -32,7 +32,7 @@ export default function PrivateRoomPage() {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light tracking-widest uppercase text-white">
               PRIVATE ROOM
             </h1>
-            <div className="w-20 h-[2.5px] bg-[#c5a882] mx-auto rounded-full" />
+            <div className="w-20 h-[2.5px] bg-[#8b6838] mx-auto rounded-full" />
             <p className="text-sm sm:text-lg font-light text-white/90 max-w-2xl mx-auto leading-relaxed">
               Celebrate your next event in style – enjoy greek fare and fresh air in a relaxing atmosphere by the river side.
             </p>
@@ -58,7 +58,7 @@ export default function PrivateRoomPage() {
             <div className="lg:col-span-6 space-y-8 text-charcoal">
               
               <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#c5a882] block">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#8b6838] block">
                   EXCLUSIVE EVENT SPACE
                 </span>
                 <p className="text-lg sm:text-2xl font-serif font-light text-charcoal leading-relaxed">
@@ -96,9 +96,9 @@ export default function PrivateRoomPage() {
                 <button
                   type="button"
                   onClick={() => setBookingOpen(true)}
-                  className="bg-[#c5a882] hover:bg-[#b0936e] text-white uppercase text-xs sm:text-sm tracking-widest font-bold px-10 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer inline-block"
+                  className="bg-[#8b6838] hover:bg-[#72542c] text-white uppercase text-xs sm:text-sm tracking-widest font-bold px-10 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer inline-block min-h-[44px]"
                 >
-                  ENQUIRE
+                  Reserve Private Room Table
                 </button>
               </div>
 
