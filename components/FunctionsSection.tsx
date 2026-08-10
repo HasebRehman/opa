@@ -32,14 +32,14 @@ export default function FunctionsSection() {
               </div>
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button (Valid destination /functions, text-charcoal on bg-mint & min 44px height) */}
             <div className="pt-2">
               <a
-                href="#contact"
-                className="inline-flex items-center gap-2 bg-mint hover:bg-mint-dark text-white text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer hover:shadow-mint/30 active:scale-95"
+                href="/functions"
+                className="inline-flex items-center gap-2 bg-mint hover:bg-mint-dark text-charcoal font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer hover:shadow-mint/30 active:scale-95 min-h-[44px]"
               >
                 <span>View Spaces</span>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4 text-charcoal" />
               </a>
             </div>
           </div>

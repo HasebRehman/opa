@@ -400,7 +400,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 placeholder="Your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-charcoal focus:border-mint focus:outline-none transition-colors shadow-xs"
+                className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-charcoal focus:border-mint focus:ring-2 focus:ring-mint focus:outline-none transition-colors shadow-xs min-h-[44px]"
               />
             </div>
 
@@ -417,7 +417,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   placeholder="04xx xxx xxx"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-charcoal focus:border-mint focus:outline-none transition-colors shadow-xs"
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-charcoal focus:border-mint focus:ring-2 focus:ring-mint focus:outline-none transition-colors shadow-xs min-h-[44px]"
                 />
               </div>
               <div className="space-y-1">
@@ -431,7 +431,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   placeholder="you@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-charcoal focus:border-mint focus:outline-none transition-colors shadow-xs"
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-charcoal focus:border-mint focus:ring-2 focus:ring-mint focus:outline-none transition-colors shadow-xs min-h-[44px]"
                 />
               </div>
             </div>
@@ -447,14 +447,14 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 placeholder="Dietary requirements, occasion, seating preference..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-charcoal focus:border-mint focus:outline-none transition-colors resize-none shadow-xs"
+                className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-charcoal focus:border-mint focus:ring-2 focus:ring-mint focus:outline-none transition-colors resize-none shadow-xs"
               />
             </div>
 
-            {/* SUBMIT BUTTON */}
+            {/* SUBMIT BUTTON (High-Contrast text-charcoal on bg-mint & min-h-[44px]) */}
             <button
               type="submit"
-              className="w-full bg-mint hover:bg-mint-dark text-white font-bold uppercase tracking-widest py-3.5 rounded-xl text-xs transition-all shadow-md hover:shadow-lg cursor-pointer transform active:scale-[0.99]"
+              className="w-full bg-mint hover:bg-mint-dark text-charcoal font-bold uppercase tracking-widest py-3.5 rounded-xl text-xs transition-all shadow-md hover:shadow-lg cursor-pointer transform active:scale-[0.99] min-h-[44px] flex items-center justify-center whitespace-nowrap"
             >
               Confirm Booking
             </button>
@@ -476,7 +476,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             </p>
             <button
               onClick={handleDone}
-              className="bg-mint hover:bg-mint-dark text-white font-bold uppercase tracking-widest px-8 py-3 rounded-xl text-xs transition-all shadow-md cursor-pointer hover:shadow-lg"
+              className="bg-mint hover:bg-mint-dark text-charcoal font-bold uppercase tracking-widest px-8 py-3 rounded-xl text-xs transition-all shadow-md cursor-pointer hover:shadow-lg min-h-[44px]"
             >
               Done
             </button>

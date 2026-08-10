@@ -133,21 +133,23 @@ export default function MenuSection({
             {/* IF TABBED MODE (Home Page) */}
             {showTabs ? (
               <div className="space-y-10">
-                {/* Category Tabs Bar — Single Scrollable Row on Mobile without Scrollbars */}
-                <div className="flex flex-nowrap overflow-x-auto no-scrollbar sm:justify-center gap-2.5 sm:gap-3 pb-3 mb-8 -mx-2 px-2 scroll-smooth">
-                  {MENU_CATEGORIES.map((cat) => (
-                    <button
-                      key={cat.id}
-                      onClick={() => setActiveTab(cat.id)}
-                      className={`shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
-                        activeTab === cat.id
-                          ? 'bg-mint text-white shadow-md scale-105'
-                          : 'bg-gray-100 text-gray hover:bg-mint/15 hover:text-mint'
-                      }`}
-                    >
-                      {cat.label}
-                    </button>
-                  ))}
+                {/* Category Tabs Bar — Single Scrollable Row on Mobile with Edge Indicators */}
+                <div className="relative">
+                  <div className="flex flex-nowrap overflow-x-auto no-scrollbar sm:justify-center gap-2.5 sm:gap-3 pb-3 mb-8 -mx-2 px-2 scroll-smooth">
+                    {MENU_CATEGORIES.map((cat) => (
+                      <button
+                        key={cat.id}
+                        onClick={() => setActiveTab(cat.id)}
+                        className={`shrink-0 px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap min-h-[44px] ${
+                          activeTab === cat.id
+                            ? 'bg-mint text-charcoal shadow-md scale-105 font-bold'
+                            : 'bg-gray-100 text-charcoal hover:bg-mint/15 hover:text-mint'
+                        }`}
+                      >
+                        {cat.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Active Tab Dishes List */}
@@ -155,15 +157,15 @@ export default function MenuSection({
                   {currentTabSection.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between py-5 gap-4 sm:gap-6 group hover:bg-mint/5 px-3 sm:px-4 rounded-xl transition-colors cursor-pointer"
+                      className="flex items-center justify-between py-5 gap-4 sm:gap-6 group hover:bg-mint/5 px-3 sm:px-4 rounded-xl transition-colors cursor-pointer min-h-[44px]"
                     >
                       <div className="flex-1 space-y-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
-                          <h4 className="text-base sm:text-xl font-serif font-semibold text-charcoal group-hover:text-mint transition-colors">
+                          <h3 className="text-base sm:text-xl font-serif font-semibold text-charcoal group-hover:text-mint transition-colors">
                             {item.name}
-                          </h4>
+                          </h3>
                           {item.tag && (
-                            <span className="text-[10px] uppercase font-bold text-[#c5a882] bg-[#c5a882]/10 border border-[#c5a882]/30 px-2 py-0.5 rounded-md shrink-0 inline-block">
+                            <span className="text-[10px] uppercase font-bold text-[#8b6838] bg-[#8b6838]/10 border border-[#8b6838]/30 px-2 py-0.5 rounded-md shrink-0 inline-block">
                               {item.tag}
                             </span>
                           )}
@@ -186,7 +188,7 @@ export default function MenuSection({
                 <div className="text-center pt-4">
                   <Link
                     href="/menu"
-                    className="inline-flex items-center gap-2 bg-charcoal hover:bg-mint text-white text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-md transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-2 bg-charcoal hover:bg-mint text-white hover:text-charcoal text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-md transition-colors cursor-pointer min-h-[44px]"
                   >
                     <span>View Full Restaurant Menu</span>
                     <ChevronRight className="w-4 h-4" />
@@ -199,7 +201,7 @@ export default function MenuSection({
                 {ALL_MENU_SECTIONS.map((sec) => (
                   <div key={sec.id} className="space-y-6">
                     {/* Section Header */}
-                    <div className="border-b border-[#c5a882]/30 pb-3 text-left">
+                    <div className="border-b border-[#8b6838]/30 pb-3 text-left">
                       <h3 className="text-2xl sm:text-4xl font-serif font-bold text-charcoal tracking-wide">
                         {sec.title}
                       </h3>
@@ -213,15 +215,15 @@ export default function MenuSection({
                       {sec.items.map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between py-5 gap-6 group hover:bg-mint/5 px-4 rounded-xl transition-colors cursor-pointer"
+                          className="flex items-center justify-between py-5 gap-6 group hover:bg-mint/5 px-4 rounded-xl transition-colors cursor-pointer min-h-[44px]"
                         >
                           <div className="flex-1 space-y-1">
                             <div className="flex items-center gap-2">
-                              <h4 className="text-base sm:text-xl font-serif font-semibold text-charcoal group-hover:text-mint transition-colors">
+                              <h3 className="text-base sm:text-xl font-serif font-semibold text-charcoal group-hover:text-mint transition-colors">
                                 {item.name}
-                              </h4>
+                              </h3>
                               {item.tag && (
-                                <span className="text-[10px] uppercase font-bold text-[#c5a882] bg-[#c5a882]/10 border border-[#c5a882]/30 px-2 py-0.5 rounded-md">
+                                <span className="text-[10px] uppercase font-bold text-[#8b6838] bg-[#8b6838]/10 border border-[#8b6838]/30 px-2 py-0.5 rounded-md">
                                   {item.tag}
                                 </span>
                               )}
@@ -254,7 +256,7 @@ export default function MenuSection({
               
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-mint/20 pb-6">
                 <div>
-                  <span className="text-xs uppercase font-bold text-[#c5a882] tracking-widest block mb-1">
+                  <span className="text-xs uppercase font-bold text-[#8b6838] tracking-widest block mb-1">
                     POPULAR SHARING EXPERIENCE
                   </span>
                   <h3 className="text-2xl sm:text-4xl font-serif font-bold text-charcoal">
@@ -276,7 +278,7 @@ export default function MenuSection({
               {/* Courses Included List */}
               <div className="space-y-4">
                 <h4 className="text-xs uppercase font-bold text-charcoal tracking-wider flex items-center gap-1.5">
-                  <Star className="w-4 h-4 text-[#c5a882] fill-[#c5a882]" />
+                  <Star className="w-4 h-4 text-[#8b6838] fill-[#8b6838]" />
                   <span>Banquet Menu Courses Included</span>
                 </h4>
 
@@ -304,14 +306,14 @@ export default function MenuSection({
                 </ul>
               </div>
 
-              {/* Banquet CTA Button */}
+              {/* Banquet CTA Button (High Contrast text-charcoal on bg-mint) */}
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
                 <button
                   type="button"
                   onClick={onOpenBooking}
-                  className="w-full sm:w-auto bg-mint hover:bg-mint-dark text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto bg-mint hover:bg-mint-dark text-charcoal font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 min-h-[44px]"
                 >
-                  <Flame className="w-4 h-4" />
+                  <Flame className="w-4 h-4 text-charcoal" />
                   <span>Reserve $64 Banquet Table</span>
                 </button>
                 <span className="text-xs text-gray-500 font-medium">Available 7 days lunch & dinner</span>
@@ -325,7 +327,7 @@ export default function MenuSection({
         {currentView === 'lunch' && (
           <div className="space-y-8 animate-fade-in-up">
             <div className="text-center space-y-2 mb-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c5a882]/10 text-[#c5a882] text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8b6838]/10 text-[#8b6838] text-xs font-bold uppercase tracking-wider border border-[#8b6838]/20">
                 <Clock className="w-3.5 h-3.5" />
                 <span>Available Daily 11:30 AM – 3:30 PM</span>
               </div>
@@ -342,15 +344,15 @@ export default function MenuSection({
               {LUNCH_ITEMS.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between py-6 gap-6 group hover:bg-mint/5 px-4 rounded-xl transition-colors cursor-pointer"
+                  className="flex items-center justify-between py-6 gap-6 group hover:bg-mint/5 px-4 rounded-xl transition-colors cursor-pointer min-h-[44px]"
                 >
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
-                      <h4 className="text-base sm:text-xl font-serif font-semibold text-charcoal group-hover:text-mint transition-colors">
+                      <h3 className="text-base sm:text-xl font-serif font-semibold text-charcoal group-hover:text-mint transition-colors">
                         {item.name}
-                      </h4>
+                      </h3>
                       {item.tag && (
-                        <span className="text-[10px] uppercase font-bold text-[#c5a882] bg-[#c5a882]/10 border border-[#c5a882]/30 px-2 py-0.5 rounded-md">
+                        <span className="text-[10px] uppercase font-bold text-[#8b6838] bg-[#8b6838]/10 border border-[#8b6838]/30 px-2 py-0.5 rounded-md">
                           {item.tag}
                         </span>
                       )}
@@ -369,24 +371,24 @@ export default function MenuSection({
               ))}
             </div>
 
-            {/* Lunch CTA */}
+            {/* Lunch CTA (High contrast text-charcoal on bg-mint & 44px min height) */}
             <div className="text-center pt-4">
               <button
                 type="button"
                 onClick={onOpenBooking}
-                className="bg-mint hover:bg-mint-dark text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-mint hover:bg-mint-dark text-charcoal font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer inline-flex items-center gap-2 min-h-[44px]"
               >
                 <span>Book a Lunch Table</span>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4 text-charcoal" />
               </button>
             </div>
           </div>
         )}
 
         {/* Bottom Callout */}
-        <div className="mt-16 p-6 rounded-2xl bg-coral-light border border-coral/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-16 p-6 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
-            <span className="text-xs uppercase font-bold text-mint tracking-wider block">
+            <span className="text-xs uppercase font-bold text-[#1c6b5e] tracking-wider block">
               DIETARY OPTIONS AVAILABLE
             </span>
             <p className="text-xs text-charcoal font-medium">
@@ -397,10 +399,10 @@ export default function MenuSection({
           <button
             type="button"
             onClick={onOpenBooking}
-            className="bg-mint hover:bg-mint-dark text-white font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-colors shrink-0 cursor-pointer flex items-center gap-1.5 shadow-md"
+            className="bg-mint hover:bg-mint-dark text-charcoal font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-colors shrink-0 cursor-pointer flex items-center gap-1.5 shadow-md min-h-[44px]"
           >
             <span>Book a Table</span>
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-4 h-4 text-charcoal" />
           </button>
         </div>
 

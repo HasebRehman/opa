@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Calendar, Users, Clock, Compass, Star, ArrowRight, ChevronDown, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, Users, Clock, Compass, Star, ArrowRight, ChevronDown, Check, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -93,12 +93,27 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
   const barRef = useRef<HTMLDivElement>(null);
 
+  const [isPlaying, setIsPlaying] = useState(true);
+
   useEffect(() => {
+    if (!isPlaying) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPlaying]);
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? HERO_IMAGES.length - 1 : prev - 1));
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+  };
+
+  const togglePlayPause = () => {
+    setIsPlaying((prev) => !prev);
+  };
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -169,6 +184,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             <img
               src={slide.src}
               alt={slide.caption}
+              loading={index === 0 ? 'eager' : 'lazy'}
               className="w-full h-full object-cover object-center"
             />
           </div>
@@ -182,9 +198,61 @@ export default function Hero({ onOpenBooking }: HeroProps) {
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full flex-1 flex flex-col justify-center my-auto">
         <div className="max-w-2xl space-y-6 animate-fade-in-up">
 
+          {/* Slide Indicator Control Pill Badge directly above Heading with Top Gap */}
+          <div className="inline-flex items-center gap-2.5 bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 shadow-lg mt-6 sm:mt-8">
+            {/* Animated Progress Indicators */}
+            <div className="flex items-center gap-1.5 px-1">
+              {HERO_IMAGES.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setCurrentSlide(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
+                    idx === currentSlide ? 'w-6 bg-mint' : 'w-2 bg-white/30 hover:bg-white/60'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Play/Pause Icon Button */}
+            <button
+              type="button"
+              onClick={togglePlayPause}
+              className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer ml-0.5"
+              aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
+            >
+              {isPlaying ? (
+                <Pause className="w-3.5 h-3.5 text-white" />
+              ) : (
+                <Play className="w-3.5 h-3.5 text-white fill-current ml-0.5" />
+              )}
+            </button>
+
+            {/* Prev / Next Arrows */}
+            <div className="flex items-center gap-0.5 border-l border-white/20 pl-2">
+              <button
+                type="button"
+                onClick={handlePrevSlide}
+                className="w-7 h-7 rounded-full hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={handleNextSlide}
+                className="w-7 h-7 rounded-full hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
           {/* Minimal Headline */}
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight font-light tracking-wide pt-8 sm:pt-0">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight font-light tracking-wide">
               Greek Passion Meets{' '}
               <span className="italic text-mint font-serif font-normal block sm:inline">
                 Riverside Luxury
@@ -196,7 +264,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             </p>
           </div>
 
-          {/* Google Reviews Badge Strip — Translucent without solid white background */}
+          {/* Google Reviews Badge Strip */}
           <div className="inline-flex items-center gap-3 bg-[#000000]/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 cursor-default shadow-lg">
             {/* 5 Yellow Stars */}
             <div className="flex items-center text-[#ffab00] gap-0.5">
@@ -223,15 +291,15 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           <div className="flex items-center gap-4 pt-1">
             <button
               onClick={onOpenBooking}
-              className="bg-mint hover:bg-mint-dark text-white font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded-full shadow-xl transition-all cursor-pointer flex items-center gap-2"
+              className="bg-mint hover:bg-mint-dark text-charcoal font-bold text-xs uppercase tracking-widest min-h-[44px] px-7 py-3 rounded-full shadow-xl transition-all cursor-pointer flex items-center gap-2 shrink-0"
             >
-              <Calendar className="w-4 h-4" />
+              <Calendar className="w-4 h-4 text-charcoal" />
               <span>Reserve Table</span>
             </button>
 
             <a
               href="#menu"
-              className="bg-white/15 hover:bg-white/25 text-white font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded-full backdrop-blur-md border border-white/30 transition-all cursor-pointer flex items-center gap-2"
+              className="bg-white/15 hover:bg-white/25 text-white font-bold text-xs uppercase tracking-widest min-h-[44px] px-7 py-3 rounded-full backdrop-blur-md border border-white/30 transition-all cursor-pointer flex items-center gap-2 shrink-0"
             >
               <span>View Menu</span>
               <ArrowRight className="w-4 h-4" />
@@ -257,7 +325,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             <button
               type="button"
               onClick={() => setOpenDropdown(openDropdown === 'guests' ? null : 'guests')}
-              className="w-full bg-white text-charcoal rounded-xl px-3.5 py-2.5 text-xs font-semibold border border-gray-200 focus:border-mint focus:outline-none flex items-center justify-between cursor-pointer hover:border-mint transition-colors shadow-sm"
+              className="w-full min-h-[44px] bg-white text-charcoal rounded-xl px-3.5 py-2.5 text-xs font-semibold border border-gray-200 focus:border-mint focus:ring-2 focus:ring-mint focus:outline-none flex items-center justify-between cursor-pointer hover:border-mint transition-colors shadow-xs"
             >
               <span>{GUEST_OPTIONS.find((g) => g.value === guests)?.label || `${guests} Guests`}</span>
               <ChevronDown className={`w-3.5 h-3.5 text-gray transition-transform duration-200 ${openDropdown === 'guests' ? 'rotate-180 text-mint' : ''}`} />
@@ -274,7 +342,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                       setGuests(option.value);
                       setOpenDropdown(null);
                     }}
-                    className={`w-full px-4 py-2 text-xs text-left font-medium flex items-center justify-between hover:bg-mint/10 hover:text-mint transition-colors cursor-pointer ${
+                    className={`w-full px-4 py-3 text-xs text-left font-medium flex items-center justify-between hover:bg-mint/10 hover:text-mint transition-colors cursor-pointer min-h-[44px] ${
                       guests === option.value ? 'bg-mint/15 text-mint font-bold' : 'text-charcoal'
                     }`}
                   >
@@ -296,7 +364,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             <button
               type="button"
               onClick={() => setOpenDropdown(openDropdown === 'date' ? null : 'date')}
-              className="w-full bg-white text-charcoal rounded-xl px-3.5 py-2.5 text-xs font-semibold border border-gray-200 focus:border-mint focus:outline-none flex items-center justify-between cursor-pointer hover:border-mint transition-colors shadow-sm"
+              className="w-full min-h-[44px] bg-white text-charcoal rounded-xl px-3.5 py-2.5 text-xs font-semibold border border-gray-200 focus:border-mint focus:ring-2 focus:ring-mint focus:outline-none flex items-center justify-between cursor-pointer hover:border-mint transition-colors shadow-xs"
             >
               <span>{formatDateDisplay(selectedDateStr)}</span>
               <Calendar className="w-3.5 h-3.5 text-gray" />
@@ -310,7 +378,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <button
                     type="button"
                     onClick={handlePrevMonth}
-                    className="p-1 rounded-lg hover:bg-gray-100 text-charcoal transition-colors cursor-pointer"
+                    className="p-1.5 rounded-lg hover:bg-gray-100 text-charcoal transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
@@ -320,7 +388,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <button
                     type="button"
                     onClick={handleNextMonth}
-                    className="p-1 rounded-lg hover:bg-gray-100 text-charcoal transition-colors cursor-pointer"
+                    className="p-1.5 rounded-lg hover:bg-gray-100 text-charcoal transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>
@@ -352,9 +420,9 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                         key={dayNum}
                         type="button"
                         onClick={() => handleSelectDay(dayNum)}
-                        className={`h-7 w-7 rounded-lg text-xs font-medium flex items-center justify-center transition-all cursor-pointer mx-auto ${
+                        className={`h-8 w-8 rounded-lg text-xs font-medium flex items-center justify-center transition-all cursor-pointer mx-auto ${
                           isSelected
-                            ? 'bg-mint text-white font-bold shadow-md'
+                            ? 'bg-mint text-charcoal font-bold shadow-md'
                             : isToday
                             ? 'border border-mint text-mint font-bold'
                             : 'text-charcoal hover:bg-mint/15 hover:text-mint'
@@ -379,7 +447,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             <button
               type="button"
               onClick={() => setOpenDropdown(openDropdown === 'time' ? null : 'time')}
-              className="w-full bg-white text-charcoal rounded-xl px-3.5 py-2.5 text-xs font-semibold border border-gray-200 focus:border-mint focus:outline-none flex items-center justify-between cursor-pointer hover:border-mint transition-colors shadow-sm"
+              className="w-full min-h-[44px] bg-white text-charcoal rounded-xl px-3.5 py-2.5 text-xs font-semibold border border-gray-200 focus:border-mint focus:ring-2 focus:ring-mint focus:outline-none flex items-center justify-between cursor-pointer hover:border-mint transition-colors shadow-xs"
             >
               <span className="truncate">{TIME_OPTIONS.find((t) => t.value === time)?.label || time}</span>
               <ChevronDown className={`w-3.5 h-3.5 text-gray transition-transform duration-200 shrink-0 ${openDropdown === 'time' ? 'rotate-180 text-mint' : ''}`} />
@@ -396,7 +464,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                       setTime(option.value);
                       setOpenDropdown(null);
                     }}
-                    className={`w-full px-4 py-2 text-xs text-left font-medium flex items-center justify-between hover:bg-mint/10 hover:text-mint transition-colors cursor-pointer ${
+                    className={`w-full px-4 py-3 text-xs text-left font-medium flex items-center justify-between hover:bg-mint/10 hover:text-mint transition-colors cursor-pointer min-h-[44px] ${
                       time === option.value ? 'bg-mint/15 text-mint font-bold' : 'text-charcoal'
                     }`}
                   >
@@ -418,7 +486,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             <button
               type="button"
               onClick={() => setOpenDropdown(openDropdown === 'area' ? null : 'area')}
-              className="w-full bg-[#ffffff] text-charcoal rounded-xl px-3.5 py-2.5 text-xs font-semibold border border-gray-200 focus:border-mint focus:outline-none flex items-center justify-between cursor-pointer hover:border-mint transition-colors shadow-sm"
+              className="w-full min-h-[44px] bg-white text-charcoal rounded-xl px-3.5 py-2.5 text-xs font-semibold border border-gray-200 focus:border-mint focus:ring-2 focus:ring-mint focus:outline-none flex items-center justify-between cursor-pointer hover:border-mint transition-colors shadow-xs"
             >
               <span className="truncate">{area}</span>
               <ChevronDown className={`w-3.5 h-3.5 text-gray transition-transform duration-200 shrink-0 ${openDropdown === 'area' ? 'rotate-180 text-mint' : ''}`} />
@@ -435,7 +503,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                       setArea(option.value);
                       setOpenDropdown(null);
                     }}
-                    className={`w-full p-3 rounded-xl text-left transition-all cursor-pointer flex items-start justify-between ${
+                    className={`w-full p-3 rounded-xl text-left transition-all cursor-pointer flex items-start justify-between min-h-[44px] ${
                       area === option.value
                         ? 'bg-mint/15 border border-mint/30 text-mint font-bold'
                         : 'hover:bg-gray-50 text-charcoal'
@@ -456,10 +524,10 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           <div>
             <button
               type="submit"
-              className="w-full bg-mint hover:bg-mint-dark text-white font-bold text-xs uppercase tracking-wider py-2.5 rounded-xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 h-[38px] active:scale-95"
+              className="w-full bg-mint hover:bg-mint-dark text-charcoal font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 min-h-[44px] h-11 active:scale-95"
             >
               <span>Find Table</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4 text-charcoal" />
             </button>
           </div>
         </form>
