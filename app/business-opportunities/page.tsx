@@ -18,13 +18,13 @@ export default function BusinessOpportunitiesPage() {
         <div className="max-w-4xl mx-auto px-6 sm:px-12 space-y-12">
           
           <div className="text-center space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#c5a882]">
-              TASSIS GROUP
+            <span className="text-xs font-bold uppercase tracking-widest text-[#8b6838]">
+              TASSIS GROUP HOSPITALITY
             </span>
-            <h1 className="text-4xl sm:text-6xl font-serif font-bold text-mint">
+            <h1 className="text-4xl sm:text-6xl font-serif text-charcoal font-bold tracking-tight">
               Business Opportunities
             </h1>
-            <div className="w-16 h-[2.5px] bg-[#c5a882] mx-auto rounded-full" />
+            <div className="w-16 h-[2.5px] bg-[#8b6838] mx-auto rounded-full" />
             <p className="text-sm sm:text-base text-gray-600 font-light max-w-xl mx-auto leading-relaxed">
               Explore partnership, leasing, corporate sponsorship, and hospitality growth opportunities with Opa Bar + Mezze and Tassis Group.
             </p>
@@ -89,10 +89,10 @@ export default function BusinessOpportunitiesPage() {
                 <div className="text-right">
                   <button
                     type="submit"
-                    className="bg-[#c5a882] hover:bg-[#b0936e] text-white font-bold py-3.5 px-8 rounded-xl shadow-lg uppercase text-xs tracking-widest cursor-pointer inline-flex items-center gap-2"
+                    className="bg-[#8b6838] hover:bg-[#72542c] text-white font-bold py-3.5 px-8 rounded-xl shadow-lg uppercase text-xs tracking-widest cursor-pointer inline-flex items-center gap-2 min-h-[44px]"
                   >
                     <Send className="w-3.5 h-3.5" />
-                    <span>Submit Proposal</span>
+                    <span>Send Inquiry</span>
                   </button>
                 </div>
               </form>

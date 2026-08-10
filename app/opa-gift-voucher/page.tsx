@@ -172,7 +172,7 @@ export default function OpaGiftVoucherPage() {
                     <button
                       type="button"
                       onClick={handleContinue}
-                      className="w-full bg-[#7ec8b5] hover:bg-mint-dark text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all text-sm uppercase tracking-wider cursor-pointer"
+                      className="w-full bg-mint hover:bg-mint-dark text-charcoal font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all text-sm uppercase tracking-wider cursor-pointer min-h-[44px]"
                     >
                       Continue to details
                     </button>
@@ -253,9 +253,9 @@ export default function OpaGiftVoucherPage() {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full bg-[#7ec8b5] hover:bg-mint-dark text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all text-sm uppercase tracking-wider cursor-pointer flex items-center justify-center gap-2"
+                      className="w-full bg-mint hover:bg-mint-dark text-charcoal font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all text-sm uppercase tracking-wider cursor-pointer flex items-center justify-center gap-2 min-h-[44px]"
                     >
-                      <ShieldCheck className="w-4 h-4" />
+                      <ShieldCheck className="w-4 h-4 text-charcoal" />
                       <span>Complete Purchase (A${selectedValue * quantity}.00)</span>
                     </button>
                   </div>
@@ -275,7 +275,7 @@ export default function OpaGiftVoucherPage() {
                       setStep('selection');
                       setQuantity(1);
                     }}
-                    className="bg-[#c5a882] text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-[#b0936e] transition-colors cursor-pointer"
+                    className="bg-[#8b6838] text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-[#72542c] transition-colors cursor-pointer min-h-[44px]"
                   >
                     Buy Another Gift Card
                   </button>
@@ -304,7 +304,7 @@ export default function OpaGiftVoucherPage() {
               <button
                 type="button"
                 onClick={() => setShowTerms(false)}
-                className="bg-mint text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-xl cursor-pointer"
+                className="bg-mint text-charcoal text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-xl cursor-pointer min-h-[44px]"
               >
                 Close
               </button>

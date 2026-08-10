@@ -51,7 +51,7 @@ export default function LunchSpecialsPage() {
             </span>
 
             <div className="pt-4 max-w-sm mx-auto">
-              <div className="w-16 h-[2px] bg-[#c5a882] mx-auto rounded-full mb-3" />
+              <div className="w-16 h-[2px] bg-[#8b6838] mx-auto rounded-full mb-3" />
               <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-widest italic">
                 Mon–Fri, from 11am–4pm
               </p>
@@ -71,7 +71,7 @@ export default function LunchSpecialsPage() {
                       {dish.name}
                     </h3>
                     {dish.tag && (
-                      <span className="text-[10px] uppercase font-bold text-[#c5a882] bg-[#c5a882]/10 border border-[#c5a882]/30 px-2 py-0.5 rounded-md">
+                      <span className="text-[10px] uppercase font-bold text-[#8b6838] bg-[#8b6838]/10 border border-[#8b6838]/30 px-2 py-0.5 rounded-md">
                         {dish.tag}
                       </span>
                     )}
@@ -114,9 +114,9 @@ export default function LunchSpecialsPage() {
             <button
               type="button"
               onClick={() => setBookingOpen(true)}
-              className="bg-[#c5a882] hover:bg-[#b0936e] text-white uppercase text-xs sm:text-sm tracking-widest font-bold px-12 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer inline-block"
+              className="bg-[#8b6838] hover:bg-[#72542c] text-white uppercase text-xs sm:text-sm tracking-widest font-bold px-12 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer inline-block min-h-[44px]"
             >
-              BOOK NOW
+              Reserve Express Lunch Table
             </button>
           </div>
 

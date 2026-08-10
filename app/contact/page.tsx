@@ -46,7 +46,7 @@ export default function ContactPage() {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light tracking-widest uppercase text-white">
               CONTACT OPA
             </h1>
-            <div className="w-20 h-[2.5px] bg-[#c5a882] mx-auto rounded-full" />
+            <div className="w-20 h-[2.5px] bg-[#8b6838] mx-auto rounded-full" />
             <p className="text-sm sm:text-base font-light text-white/90 max-w-xl mx-auto leading-relaxed">
               We&apos;re here to assist with general enquiries, private dining bookings, and event planning.
             </p>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="bg-[#c5a882] text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-[#b0936e] transition-colors cursor-pointer"
+                    className="bg-[#8b6838] text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-[#72542c] transition-colors cursor-pointer min-h-[44px]"
                   >
                     Send Another Message
                   </button>
@@ -230,7 +230,7 @@ export default function ContactPage() {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="bg-[#c5a882] hover:bg-[#b0936e] text-white font-bold py-3.5 px-8 rounded-xl shadow-lg uppercase text-xs tracking-widest cursor-pointer transition-all inline-flex items-center gap-2"
+                      className="bg-[#8b6838] hover:bg-[#72542c] text-white font-bold py-3.5 px-8 rounded-xl shadow-lg uppercase text-xs tracking-widest cursor-pointer transition-all inline-flex items-center gap-2 min-h-[44px]"
                     >
                       <Send className="w-3.5 h-3.5" />
                       <span>SEND</span>
