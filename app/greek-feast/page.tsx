@@ -62,9 +62,9 @@ export default function GreekFeastPage() {
 
               {/* 7-Piece Inclusions Section */}
               <div className="space-y-4">
-                <div className="flex items-center gap-2 border-b border-[#c5a882]/40 pb-2">
-                  <Utensils className="w-4 h-4 text-[#c5a882]" />
-                  <h3 className="text-xs uppercase font-bold tracking-widest text-[#c5a882]">
+                <div className="flex items-center gap-2 border-b border-[#8b6838]/40 pb-2">
+                  <Utensils className="w-4 h-4 text-[#8b6838]" />
+                  <h3 className="text-xs uppercase font-bold tracking-widest text-[#8b6838]">
                     7-PIECE BANQUET MENU
                   </h3>
                 </div>
@@ -120,9 +120,9 @@ export default function GreekFeastPage() {
                 <button
                   type="button"
                   onClick={() => setBookingOpen(true)}
-                  className="bg-[#c5a882] hover:bg-[#b0936e] text-white uppercase text-xs sm:text-sm tracking-widest font-bold px-10 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer inline-block"
+                  className="bg-[#8b6838] hover:bg-[#72542c] text-white uppercase text-xs sm:text-sm tracking-widest font-bold px-10 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer inline-block min-h-[44px]"
                 >
-                  BOOK NOW
+                  Reserve $64 Feast Table
                 </button>
               </div>
 
@@ -132,7 +132,7 @@ export default function GreekFeastPage() {
             <div className="lg:col-span-6 relative">
               
               {/* Floating $64pp Badge */}
-              <div className="absolute -top-6 -left-6 z-20 bg-[#c5a882] text-white rounded-full w-28 h-28 sm:w-32 sm:h-32 flex flex-col items-center justify-center shadow-2xl border-4 border-white transform -rotate-6">
+              <div className="absolute -top-6 -left-6 z-20 bg-[#8b6838] text-white rounded-full w-28 h-28 sm:w-32 sm:h-32 flex flex-col items-center justify-center shadow-2xl border-4 border-white transform -rotate-6">
                 <span className="text-3xl sm:text-4xl font-serif font-bold leading-none">
                   $64
                 </span>

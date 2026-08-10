@@ -134,48 +134,46 @@ export default function FunctionsPage() {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light tracking-widest uppercase text-white">
               FUNCTION PACKAGES
             </h1>
-            <div className="w-20 h-[2.5px] bg-[#c5a882] mx-auto rounded-full" />
+            <div className="w-20 h-[2.5px] bg-[#8b6838] mx-auto rounded-full" />
             <p className="text-sm sm:text-lg font-light text-white/90 max-w-2xl mx-auto leading-relaxed">
               Celebrate your next event in style – enjoy greek fare and fresh air in a relaxing atmosphere by the river side.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <button
-                type="button"
-                onClick={scrollToSpaces}
-                className="w-full sm:w-auto bg-[#c5a882] hover:bg-[#b0936e] text-white uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer"
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="#enquiry-form"
+                className="w-full sm:w-auto bg-mint hover:bg-mint-dark text-charcoal uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer min-h-[44px] flex items-center justify-center"
               >
-                VIEW FUNCTION PACKAGES
-              </button>
-              <button
-                type="button"
-                onClick={scrollToEnquiry}
-                className="w-full sm:w-auto bg-[#c5a882] hover:bg-[#b0936e] text-white uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer"
+                Inquire Now
+              </a>
+              <a
+                href="#function-spaces"
+                className="w-full sm:w-auto bg-[#8b6838] hover:bg-[#72542c] text-white uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer min-h-[44px] flex items-center justify-center"
               >
-                ENQUIRE NOW
-              </button>
+                Explore Venues
+              </a>
             </div>
-          </div>
-
-          {/* Bottom Curved Wave Mask */}
-          <div className="absolute bottom-0 left-0 right-0 z-10 leading-none">
-            <svg
-              className="w-full h-12 sm:h-20 text-mint fill-current"
-              viewBox="0 0 1440 120"
-              preserveAspectRatio="none"
-            >
-              <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z"></path>
-            </svg>
           </div>
         </section>
 
-        {/* Mint Intro Section */}
-        <section className="bg-mint text-white py-14 sm:py-20 px-6 text-center">
+        {/* Curved Wave Mask Overlay matching bg-[#0b1a28] */}
+        <div className="relative z-10 -mt-12 sm:-mt-20 leading-none pointer-events-none">
+          <svg
+            className="w-full h-12 sm:h-20 text-[#0b1a28] fill-current"
+            viewBox="0 0 1440 120"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z"></path>
+          </svg>
+        </div>
+
+        {/* Intro Section */}
+        <section className="bg-[#0b1a28] text-white pt-2 pb-14 sm:pb-20 px-6 text-center">
           <div className="max-w-3xl mx-auto space-y-4">
-            <p className="text-base sm:text-xl font-light leading-relaxed">
+            <p className="text-base sm:text-xl font-light leading-relaxed text-white">
               At Opa we&apos;re here to serve your needs, whether you&apos;re planning a gathering for a big group, a special event, or a casual get-together. We&apos;re ready to cater to your unique requirements to make your celebration one to remember.
             </p>
-            <p className="text-sm font-semibold text-white/90">
+            <p className="text-sm sm:text-base font-semibold text-[#7ec8b5]">
               Don&apos;t hesitate to reach out for further details or bespoke requests.
             </p>
           </div>
@@ -188,7 +186,7 @@ export default function FunctionsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Text Column Left */}
             <div className="lg:col-span-6 space-y-6 text-charcoal">
-              <span className="text-xs uppercase font-bold tracking-widest text-[#c5a882] block">
+              <span className="text-xs uppercase font-bold tracking-widest text-[#8b6838] block">
                 Small Event (15–30 guests)
               </span>
               <h2 className="text-3xl sm:text-5xl font-serif font-bold text-mint">
@@ -202,7 +200,7 @@ export default function FunctionsPage() {
                 <button
                   type="button"
                   onClick={scrollToEnquiry}
-                  className="bg-mint hover:bg-mint-dark text-white uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-md transition-all cursor-pointer"
+                  className="bg-mint hover:bg-mint-dark text-charcoal uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-md transition-all cursor-pointer"
                 >
                   ENQUIRE
                 </button>
@@ -241,24 +239,28 @@ export default function FunctionsPage() {
 
             {/* Text Column Right */}
             <div className="lg:col-span-6 order-1 lg:order-2 space-y-6 text-charcoal">
-              <span className="text-xs uppercase font-bold tracking-widest text-[#c5a882] block">
-                Medium Event (40–65 guests)
+              <span className="text-xs uppercase font-bold tracking-widest text-[#8b6838] block">
+                MAIN DINING ROOM BUYOUT
               </span>
-              <h2 className="text-3xl sm:text-5xl font-serif font-bold text-mint">
-                Bar Area
-              </h2>
-              <p className="text-sm sm:text-base font-light text-gray-700 leading-relaxed">
-                This exclusive bar area features a standing room bar with outdoor access, step-up booth & low seating and incredible views of the Brisbane River and Story Bridge. Cocktail / Beverage package, bottle service or bar tab.
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-charcoal">
+                Hellenic Grand Dining Room
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                Immerse your guests in authentic Aegean hospitality. Complete indoor dining space with custom layout possibilities, hearth views, and high-capacity staging.
               </p>
-              <p className="text-xs font-semibold text-gray-500 italic">*Minimum spend applies</p>
-              <div>
-                <button
-                  type="button"
-                  onClick={scrollToEnquiry}
-                  className="bg-mint hover:bg-mint-dark text-white uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-md transition-all cursor-pointer"
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-600 pt-2">
+                <li>&bull; Seated Capacity: Up to 120 guests</li>
+                <li>&bull; Cocktail Standing: Up to 220 guests</li>
+                <li>&bull; Feature: Full private bar access & dedicated floor service</li>
+              </ul>
+              <div className="pt-2">
+                <a
+                  href="#enquiry-form"
+                  className="bg-mint hover:bg-mint-dark text-charcoal uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-md transition-all cursor-pointer inline-flex items-center gap-2 min-h-[44px]"
                 >
-                  ENQUIRE
-                </button>
+                  <span>Book Grand Room</span>
+                  <ChevronRight className="w-4 h-4 text-charcoal" />
+                </a>
               </div>
             </div>
           </div>
@@ -269,7 +271,7 @@ export default function FunctionsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Text Column Left */}
             <div className="lg:col-span-6 space-y-6 text-charcoal">
-              <span className="text-xs uppercase font-bold tracking-widest text-[#c5a882] block">
+              <span className="text-xs uppercase font-bold tracking-widest text-[#8b6838] block">
                 Large Event (150–160 guests)
               </span>
               <h2 className="text-3xl sm:text-5xl font-serif font-bold text-mint">
@@ -283,7 +285,7 @@ export default function FunctionsPage() {
                 <button
                   type="button"
                   onClick={scrollToEnquiry}
-                  className="bg-mint hover:bg-mint-dark text-white uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-md transition-all cursor-pointer"
+                  className="bg-mint hover:bg-mint-dark text-charcoal uppercase text-xs tracking-widest font-bold px-8 py-3.5 rounded-xl shadow-md transition-all cursor-pointer"
                 >
                   ENQUIRE
                 </button>
@@ -305,18 +307,21 @@ export default function FunctionsPage() {
 
         </section>
 
+        {/* Special Event Corporate Buyout Banner — Contained Rounded Card */}
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-10">
+          <div className="bg-[#0b1a28] text-white py-12 px-8 sm:px-12 rounded-3xl shadow-2xl border border-gray-800 text-center space-y-4">
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white">
+              Planning a Special Event or Corporate Buyout?
+            </h2>
+            <p className="text-xs sm:text-sm text-white/90 font-light max-w-xl mx-auto leading-relaxed">
+              Our dedicated events team handles every detail — from custom banquet menus to audiovisual technology and beverage pairing.
+            </p>
+          </div>
+        </div>
+
         {/* Booking Enquiries Form Section WITH CUSTOM CALENDAR & POPOVERS */}
         <section id="enquiry-form" className="bg-mint/15 border-t border-b border-mint/20 py-20 px-6">
           <div className="max-w-3xl mx-auto space-y-8">
-            <div className="text-center space-y-3">
-              <h2 className="text-3xl sm:text-5xl font-serif font-bold text-mint">
-                Booking Enquiries
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-600 font-light">
-                Please complete the enquiry form and our functions manager will respond within one business day.
-              </p>
-            </div>
-
             {submitted ? (
               <div className="bg-white p-8 rounded-3xl shadow-xl text-center space-y-4 border border-mint/30 animate-fade-in-up">
                 <CheckCircle className="w-12 h-12 text-mint mx-auto" />
@@ -327,7 +332,7 @@ export default function FunctionsPage() {
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="bg-[#c5a882] text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-[#b0936e] transition-colors cursor-pointer"
+                  className="bg-[#8b6838] text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-[#72542c] transition-colors cursor-pointer"
                 >
                   Submit Another Enquiry
                 </button>
@@ -578,9 +583,9 @@ export default function FunctionsPage() {
                 <div className="text-right pt-2">
                   <button
                     type="submit"
-                    className="bg-[#c5a882] hover:bg-[#b0936e] text-white uppercase text-xs tracking-widest font-bold px-10 py-4 rounded-xl shadow-lg transition-all cursor-pointer"
+                    className="bg-[#8b6838] hover:bg-[#72542c] text-white uppercase text-xs tracking-widest font-bold px-10 py-4 rounded-xl shadow-lg transition-all cursor-pointer min-h-[44px]"
                   >
-                    SUBMIT ENQUIRY
+                    Submit Function Enquiry
                   </button>
                 </div>
               </form>
